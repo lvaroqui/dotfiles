@@ -1,0 +1,11 @@
+command=~/.i3/blocks/$BLOCK_NAME
+
+[volume-control]
+interval=once
+signal=1
+color=#42a1f5
+
+[time]
+command=echo "📅 $(date +"%F %R:%S")"
+interval=1
+color=#ffb545

@@ -1,0 +1,13 @@
+[default]
+depends = ["git", "i3", "zsh"]
+
+[git.files]
+gitconfig = "~/.gitconfig"
+
+[i3.files]
+"i3/blocks/config" = "~/.config/i3blocks/config"
+i3 = "~/.i3"
+
+[zsh.files]
+"zsh/zshrc" = "~/.zshrc"
+"zsh/p10k.zsh" = "~/.p10k.zsh"

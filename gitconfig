@@ -1,0 +1,15 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	email = luc@varoqui.org
+	name = Luc Varoqui
+[push]
+	default = current
+[core]
+	editor = code --wait
+[alias]
+	supdate = submodule update --init --recursive
+	co = checkout
