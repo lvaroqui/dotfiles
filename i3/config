@@ -33,7 +33,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -44,15 +44,6 @@ bindsym $mod+d exec --no-startup-id dmenu_recency
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
-
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
-
-exec --no-startup-id start-pulseaudio-x11
-exec --no-startup-id pa-applet
-
-################################################################################################
 
 # Volume control
 bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
@@ -374,8 +365,8 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 8
-gaps outer -2
+gaps inner 4
+gaps outer 0
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
