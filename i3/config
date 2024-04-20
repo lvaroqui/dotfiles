@@ -66,8 +66,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec brightnessctl set 10%+ && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%- && pkill -RTMIN+2 i3blocks
 
 # Start Applications
 bindsym $mod+F2 exec firefox
@@ -295,6 +295,7 @@ bindsym $mod+9 exec --no-startup-id blurlock
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
@@ -339,9 +340,9 @@ bar {
 
 	bindsym button4 nop
 	bindsym button5 nop
-    #font xft:URWGothic-Book 11
-    font pango:Hack Bold 12
+    font pango:FiraMono Nerd Font 11
 	strip_workspace_numbers yes
+    tray_padding 3px
 
     colors {
         background #141414

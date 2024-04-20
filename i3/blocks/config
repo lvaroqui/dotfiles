@@ -1,11 +1,29 @@
 command=~/.i3/blocks/$BLOCK_NAME
 
+{{#if laptop}}
+[brightness]
+interval=once
+markup=pango
+signal=2
+color=#f5d14e
+
+[battery]
+markup=pango
+interval=30
+color=#aaaaaa
+{{/if}}
+
 [volume-control]
 interval=once
 signal=1
 color=#42a1f5
 
-[time]
-command=echo "📅 $(date +"%F %R:%S")"
+[date]
+command=echo " $(date +"%F")"
 interval=1
-color=#ffb545
+color=#ff8a8a
+
+[time]
+command=echo " $(date +"%R:%S")"
+interval=1
+color=#ff96fa

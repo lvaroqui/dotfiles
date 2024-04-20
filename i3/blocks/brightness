@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+import subprocess
+
+def brightness():
+    return int(float(
+        subprocess.run(["brightnessctl", "get"], capture_output=True)
+        .stdout.decode()
+        .strip()
+    ) / 2.55)
+
+def icon(brightness):
+    if brightness < 25:
+        return "󰃞"
+    elif brightness < 55:
+        return "󰃟"
+    else:
+        return "󰃠"
+
+
+if __name__ == "__main__":
+    brightness = brightness()
+
+    print(f"{icon(brightness)} {brightness}%")

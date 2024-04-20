@@ -41,13 +41,26 @@ def print_status():
     )
     volume = re.search("[0-9]+%", volume).group(0)
 
+    mute = (
+        subprocess.run(
+            ["pactl", "get-sink-mute", "@DEFAULT_SINK@"], capture_output=True
+        )
+        .stdout.decode()
+        .strip()
+    )
+    mute = "yes" in mute
+
     defaultName = defaultSinkName()
     nameMap = {
         "alsa_output.pci-0000_0a_00.4.analog-stereo": "🔊 Speakers",
+        "bluez_output.0C_AE_BD_06_99_5A.1": "󰓃 Edifiers",
+        "alsa_output.pci-0000_c1_00.6.analog-stereo": " Internals",
         "alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo": "🎧 Headphones",
     }
     name = nameMap.get(defaultName) or defaultName
-    print(f"{name} {volume} ")
+
+    volume = volume if not mute else "🔇"
+    print(f"{name} {volume}")
 
 
 def next_sink():
@@ -73,4 +86,8 @@ def next_sink():
 if __name__ == "__main__":
     if os.getenv("button") == "1":
         next_sink()
+    if os.getenv("button") == "4":
+        subprocess.run(["amixer", "-q", "-D", "pulse", "sset", "Master", "2%+"])
+    if os.getenv("button") == "5":
+        subprocess.run(["amixer", "-q", "-D", "pulse", "sset", "Master", "2%-"])
     print_status()
