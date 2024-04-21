@@ -1,5 +1,5 @@
 [default]
-depends = ["git", "i3", "zsh"]
+depends = ["git", "i3", "zsh", "alacritty", "picom"]
 
 [git.files]
 gitconfig = "~/.gitconfig"
@@ -11,3 +11,9 @@ i3 = "~/.i3"
 [zsh.files]
 "zsh/zshrc" = "~/.zshrc"
 "zsh/p10k.zsh" = "~/.p10k.zsh"
+
+[alacritty.files]
+"alacritty.toml" = "~/.config/alacritty/alacritty.toml"
+
+[picom.files]
+"picom.conf" = "~/.config/picom.conf"

@@ -8,10 +8,15 @@ set $alt Mod1
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
+# Autostart applications
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nitrogen --restore; sleep 1
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id picom -b
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
 exec --no-startup-id numlockx on
-
-# Auto start
-exec --no-startup-id pasystray
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 1
@@ -64,8 +69,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%- && pkill -RTMIN+2 i3bl
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Ctrl+m exec pavucontrol
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+bindsym $mod+t exec --no-startup-id pkill picom
+bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym--release Print exec --no-startup-id i3-scrot -sc
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
@@ -282,14 +287,6 @@ mode "resize" {
 # Lock screen
 bindsym $mod+9 exec --no-startup-id blurlock
 
-# Autostart applications
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1
-exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
-
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
 # https://i3wm.org/docs/userguide.html#xresources
@@ -365,11 +362,11 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 4
+gaps inner 6
 gaps outer 0
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
