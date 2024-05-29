@@ -13,3 +13,5 @@
 [alias]
 	supdate = submodule update --init --recursive
 	co = checkout
+[sequence]
+	editor = interactive-rebase-tool
