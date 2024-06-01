@@ -10,99 +10,79 @@ import os
 import re
 
 config = dict(os.environ)
-status = check_output(['acpi'], universal_newlines=True)
+devices = check_output(['upower', '-e'], universal_newlines=True).split('\n')
+for device in devices:
+    if 'battery_BAT' in device:
+        break
 
-if not status:
-    # stands for no battery found
-    color = config.get("color_10", "red")
-    fulltext = "<span color='{}'><span font='FontAwesome'>\uf00d \uf240</span></span>".format(color)
-    percentleft = 100
+
+status = check_output(['upower', '-i', device], universal_newlines=True).split('\n')
+for line in status:
+    if 'percentage' in line:
+        percent = int(line.split(':')[1].strip()[0:-1])
+    if 'state' in line:
+        state = line.split(':')[1].strip()
+    if 'time to full' in line:
+        time_to_full = line.split(':')[1].strip()
+    if 'time to empty' in line:
+        time_to_empty = line.split(':')[1].strip()
+
+if state == 'discharging':
+    time_left = ' ' + time_to_empty
+elif state == 'charging':
+    time_left = ' ' + time_to_full
 else:
-    # if there is more than one battery in one laptop, the percentage left is
-    # available for each battery separately, although state and remaining
-    # time for overall block is shown in the status of the first battery
-    batteries = [status.split("\n")[1]]
-    state_batteries=[]
-    commasplitstatus_batteries=[]
-    percentleft_batteries=[]
-    time = ""
-    for battery in batteries:
-        if battery!='':
-            state_batteries.append(battery.split(": ")[1].split(", ")[0])
-            commasplitstatus = battery.split(", ")
-            if not time:
-                time = commasplitstatus[-1].strip()
-                # check if it matches a time
-                time = re.match(r"(\d+):(\d+)", time)
-                if time:
-                    time = ":".join(time.groups())
-                    timeleft = " ({})".format(time)
-                else:
-                    timeleft = ""
+    time_left = ''
 
-            p = int(commasplitstatus[1].rstrip("%\n"))
-            if p>0:
-                percentleft_batteries.append(p)
-            commasplitstatus_batteries.append(commasplitstatus)
-    state = state_batteries[0]
-    commasplitstatus = commasplitstatus_batteries[0]
-    if percentleft_batteries:
-        percentleft = int(sum(percentleft_batteries)/len(percentleft_batteries))
-    else:
-        percentleft = 0
+def color(percent):
+    if percent < 10:
+        return "#FF4040"
+    if percent < 20:
+        return "#FF673D"
+    if percent < 30:
+        return "#FFB429"
+    if percent < 40:
+        return "#FFD954"
+    if percent < 50:
+        return "#FFF861"
+    if percent < 60:
+        return "#DCFF6C"
+    if percent < 70:
+        return "#CAFF6C"
+    if percent < 80:
+        return "#B4FF6C"
+    if percent < 90:
+        return "#93FF6C"
+    return "#47FF6C"
 
-
-    def color(percent):
+def battery_icon(percent):
+    if state == "discharging":
         if percent < 10:
-            return "#FF4040"
-        if percent < 20:
-            return "#FF673D"
-        if percent < 30:
-            return "#FFB429"
-        if percent < 40:
-            return "#FFD954"
-        if percent < 50:
-            return "#FFF861"
-        if percent < 60:
-            return "#DCFF6C"
-        if percent < 70:
-            return "#CAFF6C"
-        if percent < 80:
-            return "#B4FF6C"
-        if percent < 90:
-            return "#93FF6C"
-        return "#47FF6C"
-
-    def battery_icon(percent):
-        if state == "Discharging":
-            if percent < 10:
-                return "󰁺"
-            elif percent < 20:
-                return "󰁻"
-            elif percent < 30:
-                return "󰁼"
-            elif percent < 40:
-                return "󰁽"
-            elif percent < 50:
-                return "󰁾"
-            elif percent < 60:
-                return "󰁿"
-            elif percent < 70:
-                return "󰂀"
-            elif percent < 80:
-                return "󰂁"
-            elif percent < 90:
-                return "󰂂"
-            else:
-                return "󰁹"
-        elif state == "Unknown":
-            return ""
+            return "󰁺"
+        elif percent < 20:
+            return "󰁻"
+        elif percent < 30:
+            return "󰁼"
+        elif percent < 40:
+            return "󰁽"
+        elif percent < 50:
+            return "󰁾"
+        elif percent < 60:
+            return "󰁿"
+        elif percent < 70:
+            return "󰂀"
+        elif percent < 80:
+            return "󰂁"
+        elif percent < 90:
+            return "󰂂"
         else:
-            return ""
+            return "󰁹"
+    else:
+        return ""
 
-    fulltext =  f'<span color="{color(percentleft)}">{battery_icon(percentleft)} {percentleft}%</span>'
-    fulltext += timeleft
+fulltext =  f'<span color="{color(percent)}">{battery_icon(percent)} {percent}%</span>'
+fulltext += time_left
 
 print(fulltext)
-if percentleft < 10:
+if percent < 10:
     exit(33)
