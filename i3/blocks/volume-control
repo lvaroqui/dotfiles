@@ -52,12 +52,18 @@ def print_status():
 
     defaultName = defaultSinkName()
     nameMap = {
-        "alsa_output.pci-0000_0a_00.4.analog-stereo": "🔊 Speakers",
+        "alsa_output.pci-0000_0a_00": "🔊 Speakers",
         "bluez_output.0C_AE_BD_06_99_5A.1": "󰓃 Edifiers",
-        "alsa_output.pci-0000_c1_00.6.3.analog-stereo": " Internals",
+        "alsa_output.pci-0000_c1_00": " Internals",
         "alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo": "🎧 Headphones",
+        "Jabra": "🎧 Jabra",
     }
-    name = nameMap.get(defaultName) or defaultName
+    for name, displayName in nameMap.items():
+        if name in defaultName:
+            name = displayName
+            break
+    else:
+        name = defaultName
 
     volume = volume if not mute else "🔇"
     print(f"{name} {volume}")
