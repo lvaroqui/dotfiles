@@ -1,3 +1,8 @@
 [window]
 opacity = 0.6
 blur = true
+
+[keyboard]
+bindings = [
+  { key = "Back", mods = "Control", chars = "\u001b\u007f" } # Delete word
+]
