@@ -1,112 +1,184 @@
 [
-    {
-        "border": "pixel",
-        "floating": "auto_off",
-        "layout": "splitv",
-        "marks": [],
-        "percent": 0.278688524590164,
-        "type": "con",
-        "nodes": [
-            {
-                "border": "pixel",
-                "current_border_width": 1,
-                "floating": "auto_off",
-                "geometry": {
-                    "height": 1389,
-                    "width": 2172,
-                    "x": 0,
-                    "y": 0
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "stacked",
+    "marks": [],
+    "percent": 0.153688524590164,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "stacked",
+            "marks": [],
+            "percent": 1,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1351,
+                       "width": 1416,
+                       "x": 7,
+                       "y": 58
+                    },
+                    "marks": [],
+                    "name": "Spotify",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                        "class": "^Spotify$"
+                       }
+                    ],
+                    "type": "con"
                 },
-                "marks": [],
-                "name": "Licorne Gaming — Mozilla Firefox",
-                "percent": 1,
-                "swallows": [
-                    {
-                        "class": "^firefox$"
-                    }
-                ],
-                "type": "con"
-            }
-        ]
-    },
-    {
-        "border": "pixel",
-        "floating": "auto_off",
-        "layout": "stacked",
-        "marks": [],
-        "percent": 0.442622950819672,
-        "type": "con",
-        "nodes": [
-            {
-                "border": "pixel",
-                "current_border_width": 1,
-                "floating": "auto_off",
-                "geometry": {
-                    "height": 1389,
-                    "width": 2200,
-                    "x": 1246,
-                    "y": 13
-                },
-                "marks": [],
-                "name": "licorne-gaming - Rust - Visual Studio Code",
-                "percent": 1,
-                "swallows": [
-                    {
-                        "class": "^Code$"
-                    }
-                ],
-                "type": "con"
-            }
-        ]
-    },
-    {
-        "border": "pixel",
-        "floating": "auto_off",
-        "layout": "stacked",
-        "marks": [],
-        "percent": 0.278688524590164,
-        "type": "con",
-        "nodes": [
-            {
-                "border": "pixel",
-                "current_border_width": 1,
-                "floating": "auto_off",
-                "geometry": {
-                    "height": 1338,
-                    "width": 1645,
-                    "x": 3462,
-                    "y": 64
-                },
-                "marks": [],
-                "name": "#spam-et-bordel | LicornesDiscord",
-                "percent": 0.5,
-                "swallows": [
-                    {
-                        "class": "^discord$"
-                    }
-                ],
-                "type": "con"
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 600,
+                       "width": 800,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "marks": [],
+                    "name": "Terminal",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                       "class": "^Alacritty$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+},
+
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "stacked",
+    "marks": [],
+    "percent": 0.505122950819672,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "stacked",
+            "marks": [],
+            "percent": 1,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "floating": "auto_off",
+                    "layout": "stacked",
+                    "marks": [],
+                    "percent": 1,
+                    "type": "con",
+                    "nodes": [
+                        {
+                            "border": "none",
+                            "current_border_width": 1,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 1389,
+                               "width": 2200,
+                               "x": 1246,
+                               "y": 13
+                            },
+                            "marks": [],
+                            "name": "VS Code",
+                            "percent": 0.5,
+                            "swallows": [
+                               {
+                             "class": "^Code$"
+                               }
+                            ],
+                            "type": "con"
+                        },
+                        {
+                            "border": "pixel",
+                            "current_border_width": 1,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 1404,
+                               "width": 5108,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "marks": [],
+                            "name": "Firefox",
+                            "percent": 0.5,
+                            "swallows": [
+                               {
+                                "class": "^firefox$"
+                               }
+                            ],
+                            "type": "con"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+},
+
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "stacked",
+    "marks": [],
+    "percent": 0.341188524590164,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1402,
+               "width": 1269,
+               "x": 3844,
+               "y": 7
             },
-            {
-                "border": "pixel",
-                "current_border_width": 1,
-                "floating": "auto_off",
-                "geometry": {
-                    "height": 1338,
-                    "width": 1645,
-                    "x": 0,
-                    "y": 0
-                },
-                "marks": [],
-                "name": "i3: Layout saving in i3 — Mozilla Firefox",
-                "percent": 0.5,
-                "swallows": [
-                    {
-                        "class": "^firefox$"
-                    }
-                ],
-                "type": "con"
-            }
-        ]
-    }
+            "marks": [],
+            "name": "Discord",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^discord$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1338,
+               "width": 1645,
+               "x": 0,
+               "y": 0
+            },
+            "marks": [],
+            "name": "Firefox",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^firefox$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
 ]
