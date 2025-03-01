@@ -1,8 +1,11 @@
 [default]
-depends = ["git", "i3", "zsh", "alacritty", "picom", "wezterm"]
+depends = ["git", "i3", "zsh", "alacritty", "picom", "wezterm", "oh-my-posh"]
 
 [wezterm.files]
 "wezterm.lua" = "~/.wezterm.lua"
+
+[oh-my-posh.files]
+"oh-my-posh.yaml" = "~/.oh-my-posh.yaml"
 
 [git.files]
 gitconfig = "~/.gitconfig"
@@ -13,7 +16,6 @@ i3 = "~/.i3"
 
 [zsh.files]
 "zsh/zshrc" = "~/.zshrc"
-"zsh/p10k.zsh" = "~/.p10k.zsh"
 
 [alacritty.files]
 "alacritty.toml" = "~/.config/alacritty/alacritty.toml"
