@@ -1,5 +1,8 @@
 [default]
-depends = ["git", "i3", "zsh", "alacritty", "picom"]
+depends = ["git", "i3", "zsh", "alacritty", "picom", "wezterm"]
+
+[wezterm.files]
+"wezterm.lua" = "~/.wezterm.lua"
 
 [git.files]
 gitconfig = "~/.gitconfig"

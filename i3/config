@@ -38,7 +38,7 @@ font pango:0xProto Nerd Font Mono 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id wezterm
 
 # kill focused window
 bindsym $mod+q kill
@@ -227,7 +227,7 @@ mode "$mode_workspace_selector" {
     bindsym 1 exec --no-startup-id "i3-msg 'append_layout /home/luc/.i3/web-dev.json'", \
         exec --no-startup-id firefox, \
         exec --no-startup-id firefox, \
-        exec --no-startup-id alacritty, \
+        exec --no-startup-id wezterm, \
         exec --no-startup-id discord, \
         exec --no-startup-id code, \
         mode "default"
