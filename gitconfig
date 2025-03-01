@@ -13,5 +13,6 @@
 [alias]
 	supdate = submodule update --init --recursive
 	co = checkout
+	set-upstream = !git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)
 [sequence]
 	editor = interactive-rebase-tool
