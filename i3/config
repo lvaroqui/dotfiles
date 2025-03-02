@@ -224,8 +224,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+i mode "$mode_workspace_selector"
 set $mode_workspace_selector (1) WebDev
 mode "$mode_workspace_selector" {
-    bindsym 1 exec --no-startup-id "i3-msg 'append_layout /home/luc/.i3/web-dev.json'", \
-        exec --no-startup-id firefox, \
+    bindsym 1 exec --no-startup-id "i3-msg 'append_layout ~/.i3/web-dev.json'", \
+        exec --no-startup-id firefox, \11
         exec --no-startup-id firefox, \
         exec --no-startup-id wezterm, \
         exec --no-startup-id discord, \
@@ -351,12 +351,12 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #ffb545 #ffb545 #141414 #ff7066
-  client.focused_inactive #141414 #141414 #ffb545 #472b2a
-  client.unfocused        #141414 #141414 #7d7d7d #141414
-  client.urgent           #ff7066 #ff7066 #141414 #ff7066
-  client.placeholder      #000000 #0c0c0c #ffffff #000000
-  client.background       #2B2C2B
+client.focused          #ffb545 #ffb545 #141414 #ff7066
+client.focused_inactive #141414 #141414 #ffb545 #472b2a
+client.unfocused        #141414 #141414 #7d7d7d #141414
+client.urgent           #ff7066 #ff7066 #141414 #ff7066
+client.placeholder      #000000 #0c0c0c #ffffff #000000
+client.background       #2B2C2B
 
 #############################
 ### settings for i3-gaps: ###

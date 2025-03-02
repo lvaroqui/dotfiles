@@ -2,7 +2,7 @@ command=~/.i3/blocks/$BLOCK_NAME
 
 {{#if laptop}}
 [brightness]
-interval=once
+interval=30
 markup=pango
 signal=2
 color=#f5d14e
@@ -14,7 +14,7 @@ color=#aaaaaa
 {{/if}}
 
 [volume-control]
-interval=once
+interval=30
 signal=1
 color=#42a1f5
 
