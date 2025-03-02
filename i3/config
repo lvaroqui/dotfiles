@@ -225,7 +225,7 @@ bindsym $mod+i mode "$mode_workspace_selector"
 set $mode_workspace_selector (1) WebDev
 mode "$mode_workspace_selector" {
     bindsym 1 exec --no-startup-id "i3-msg 'append_layout ~/.i3/web-dev.json'", \
-        exec --no-startup-id firefox, \11
+        exec --no-startup-id firefox, \
         exec --no-startup-id firefox, \
         exec --no-startup-id wezterm, \
         exec --no-startup-id discord, \

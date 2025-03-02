@@ -1,6 +1,7 @@
 local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
+local act = wezterm.action
 
 config.color_scheme = 'Dracula'
 
@@ -16,5 +17,16 @@ config.window_padding = {
     top = 0,
     bottom = 0
 }
+
+config.keys = {{
+    key = 'Backspace',
+    mods = 'CTRL',
+    action = act.SendKey {
+        key = 'w',
+        mods = 'CTRL'
+    }
+}}
+
+config.scrollback_lines = 20000
 
 return config

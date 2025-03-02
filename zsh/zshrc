@@ -8,6 +8,9 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Extend PATH
 
 export PATH=$PATH:~/.cargo/bin/
@@ -24,6 +27,8 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 # Setup atuin (command history manager)
 eval "$(atuin init --disable-up-arrow zsh)"
+
+export ZSH_AUTOSUGGEST_STRATEGY=(completion atuin)
 
 # Setup pyenv
 export PYENV_ROOT="$HOME/.pyenv"
