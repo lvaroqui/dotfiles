@@ -2,10 +2,10 @@
 depends = ["git", "i3", "zsh", "alacritty", "picom", "wezterm", "oh-my-posh"]
 
 [wezterm.files]
-"wezterm.lua" = "~/.wezterm.lua"
+"wezterm.lua" = { target = "~/.wezterm.lua", type = "symbolic" }
 
 [oh-my-posh.files]
-"oh-my-posh.yaml" = "~/.oh-my-posh.yaml"
+"oh-my-posh.yaml" = { target = "~/.oh-my-posh.yaml", type = "symbolic" }
 
 [git.files]
 gitconfig = "~/.gitconfig"
