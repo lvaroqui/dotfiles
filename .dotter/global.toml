@@ -1,5 +1,14 @@
 [default]
-depends = ["git", "i3", "zsh", "alacritty", "picom", "wezterm", "oh-my-posh"]
+depends = [
+    "git",
+    "i3",
+    "zsh",
+    "alacritty",
+    "picom",
+    "wezterm",
+    "oh-my-posh",
+    "logseq",
+]
 
 [wezterm.files]
 "wezterm.lua" = { target = "~/.wezterm.lua", type = "symbolic" }
@@ -22,3 +31,6 @@ i3 = "~/.i3"
 
 [picom.files]
 "picom.conf" = "~/.config/picom.conf"
+
+[logseq.files]
+"logseq/Preferences" = { target = "~/.config/Logseq/Preferences", type = "symbolic" }
