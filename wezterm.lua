@@ -29,4 +29,6 @@ config.keys = {{
 
 config.scrollback_lines = 20000
 
+config.window_decorations = "NONE"
+
 return config

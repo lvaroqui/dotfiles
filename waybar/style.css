@@ -1,0 +1,219 @@
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+
+@define-color base alpha(#000000, 0.1);
+/* @define-color surface alpha(@lavender, 0.15); */
+@define-color surface alpha(#000000, 0.7);
+@define-color text #3c3c3c;
+@define-color hoverBg alpha(@peach, 1);
+@define-color hoverFg #000000;
+@define-color activeBg alpha(@peach, 1);
+@define-color activeFg #000000;
+@define-color shadow alpha(@lavender, 0.25);
+
+* {
+  all: unset;
+  font-size: 1rem;
+  font-weight: 900;
+  font-family: "0xProto Nerd Font Mono", JetBrainsMonoNerdFont, Font Awesome,
+    Roboto, Helvetica, Arial, sans-serif;
+  background-clip: border-box;
+}
+
+tooltip {
+  opacity: 1;
+  background-color: @surface;
+  border-radius: 12px;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+#window {
+  margin-right: 8px;
+}
+
+#custom-appmenu,
+#quicklinks,
+#media,
+#hardware,
+#clock,
+#networking,
+#backlight,
+#custom-power,
+#custom-notification,
+#workspaces button {
+  background-color: @surface;
+  border-radius: 999px;
+}
+
+#workspaces button {
+  padding: 0rem 0.6rem;
+  margin: 0.25rem;
+  color: @text;
+}
+
+#workspaces button.focused {
+  background-color: @activeBg;
+  color: @activeFg;
+}
+
+#media,
+#hardware,
+#networking,
+#backlight,
+#clock {
+  padding: 0 8px;
+}
+
+#cpu,
+#memory,
+#temperature,
+#disk {
+  padding-right: 0.5rem;
+}
+
+menu {
+  border-radius: 15px;
+  background: #161320;
+  color: #b5e8e0;
+}
+menuitem {
+  border-radius: 15px;
+}
+
+#idle_inhibitor,
+#power-profiles-daemon,
+#custom-power {
+  min-width: 32px;
+  min-height: 32px;
+  background-color: @surface;
+  border-radius: 999px;
+  font-size: 1.2rem;
+}
+
+#idle_inhibitor {
+  color: @text;
+}
+
+#idle_inhibitor.activated {
+  color: @blue;
+}
+
+#custom-appmenu,
+#custom-notification {
+  font-size: 24px;
+  min-width: 32px;
+  min-height: 32px;
+  padding-right: 4px;
+  border-radius: 999px;
+}
+
+@keyframes blink-red {
+  to {
+    color: @red;
+  }
+}
+
+@keyframes blink-yellow {
+  to {
+    color: @yellow;
+  }
+}
+
+#battery {
+  border-radius: 4px;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#battery.warning:not(.charging) {
+  color: white;
+  animation-name: blink-yellow;
+}
+
+#battery.critical:not(.charging) {
+  color: white;
+  animation-name: blink-red;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @activeBg;
+}
+
+label:focus {
+  background-color: @activeBg;
+}
+
+#quicklinks {
+}
+
+#temperature.critical {
+  color: red;
+}
+
+#cpu {
+  color: @peach;
+}
+
+#memory {
+  color: @green;
+}
+
+#disk {
+  color: @lavender;
+}
+
+#temperature {
+  color: @flamingo;
+}
+
+#battery {
+  color: @teal;
+}
+
+#networking {
+  color: @lavender;
+}
+
+#media {
+  color: @sapphire;
+}
+
+#clock {
+  color: @rosewater;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#power-profiles-daemon.performance {
+  color: @peach;
+}
+#power-profiles-daemon.balanced {
+  color: @sky;
+}
+#power-profiles-daemon.power-saver {
+  color: @green;
+}

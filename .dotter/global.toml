@@ -2,6 +2,7 @@
 depends = [
     "git",
     "i3",
+    "niri",
     "zsh",
     "alacritty",
     "picom",
@@ -22,6 +23,14 @@ gitconfig = "~/.gitconfig"
 [i3.files]
 "i3/blocks/config" = "~/.config/i3blocks/config"
 i3 = "~/.i3"
+
+[niri.files]
+"niri/config.kdl" = "~/.config/niri/config.kdl"
+"swaylock/config" = "~/.config/swaylock/config"
+"mako/config" = "~/.config/mako/config"
+"waybar/" = "~/.config/waybar/"
+"systemd/user/swaybg.service" = "~/.config/systemd/user/swaybg.service"
+"systemd/user/swayidle.service" = "~/.config/systemd/user/swayidle.service"
 
 [zsh.files]
 "zsh/zshrc" = "~/.zshrc"

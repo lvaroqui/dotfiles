@@ -1,0 +1,19 @@
+{
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": " {signalStrength}%  {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "format-ethernet": "  {bandwidthDownBytes}  {bandwidthUpBytes} ",
+    "format-disconnected": "󰲛 ",
+    "tooltip-format": " {ifname} via {gwaddri}",
+    "tooltip-format-wifi": " {essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": " {ifname} ({ipaddr}/{cidr})",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 1,
+    "on-click": "nm-connection-editor"
+  },
+
+  "group/networking": {
+    "orientation": "horizontal",
+    "modules": ["network"]
+  }
+}
