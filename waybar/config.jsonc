@@ -24,7 +24,9 @@
     "backlight",
     "custom/notification",
     "idle_inhibitor",
+{{#if laptop}}
     "power-profiles-daemon",
+{{/if}}
     "clock",
     "custom/power"
   ]

@@ -3,7 +3,8 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
 
-spawn-at-startup "xwayland-satellite"
+spawn-at-startup "xwayland-satellite" ":12"
+prefer-no-csd
 
 // Input device configuration.
 // Find the full list of options on the wiki:
@@ -11,7 +12,6 @@ spawn-at-startup "xwayland-satellite"
 input {
     focus-follows-mouse max-scroll-amount="20%"
     workspace-auto-back-and-forth
-
 
     keyboard {
         xkb {
@@ -74,7 +74,7 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
+output "DP-1" {
     // Uncomment this line to disable this output.
     // off
 
@@ -84,14 +84,14 @@ input {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
+    mode "5120x1440@119.970"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 2
+    // scale 1.0
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-    transform "normal"
+    // transform "normal"
 
     // Position of the output in the global coordinate space.
     // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
@@ -102,11 +102,11 @@ input {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    // position x=1280 y=0
 }
 
 environment {
-    DISPLAY ":0"
+    DISPLAY ":12"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
@@ -130,10 +130,19 @@ layout {
         // Proportion sets the width as a fraction of the output width, taking gaps into account.
         // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
         // The default preset widths are 1/3, 1/2 and 2/3 of the output.
+{{#if laptop}}
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
         proportion 1.0
+{{else}}
+	    proportion 0.125
+	    proportion 0.25
+        proportion 0.33333
+        proportion 0.4
+        proportion 0.5
+        proportion 0.66667
+{{/if}}
 
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
@@ -148,7 +157,11 @@ layout {
     }
 
     // You can change the default width of the new windows.
+{{#if laptop}}
     default-column-width { proportion 0.5; }
+{{else}}
+    default-column-width { proportion 0.25; }
+{{/if}}
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
@@ -312,7 +325,11 @@ window-rule {
     match app-id="code$"
 
     default-column-width {
+    {{#if laptop}}
         proportion 1.0;
+    {{else}}
+        proportion 0.5;
+    {{/if}}
     }
 }
 
@@ -414,27 +431,19 @@ binds {
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
     // ...
 
-    // And you can also move a whole workspace to another monitor:
+    // And you can also move a whole orkspace to another monitor:
     // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
     // ...
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }

@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
 
 # Install Niri's dependencies
-paru -S niri swayidle swaybg swaylock-effects waybar mako
+paru -S niri \
+    swayidle \
+    swaybg \
+    swaylock-effects \
+    waybar \
+    mako \
+    xdg-desktop-portal-gtk \
+    xdg-desktop-portal-gnome \
+    nautilus \
+    gnome-keyring \
+    polkit-kde-agent \
+    xwayland-satellite \
+    lm_sensors
 
 # Enable Niri's services
 systemctl --user add-wants niri.service mako.service

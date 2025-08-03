@@ -21,8 +21,12 @@
     "format-icons": ["", "", ""],
     "interval": 1,
     "critical-threshold": 80,
+  {{#if laptop}}
     "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
-    "input-filename": "temp1_input"
+    "input-filename": "temp1_input",
+  {{else}}
+    "hwmon-path": "/sys/class/hwmon/hwmon5/temp2_input"
+  {{/if}}
   },
 
   "battery": {
