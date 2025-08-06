@@ -4,7 +4,7 @@
 paru -S niri \
     swayidle \
     swaybg \
-    swaylock-effects \
+    hyprlock \
     waybar \
     mako \
     xdg-desktop-portal-gtk \
