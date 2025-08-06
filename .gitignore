@@ -1,3 +1,6 @@
 .dotter/cache
 .dotter/cache.toml
 .dotter/local.toml
+
+book_downloads/
+books.zip

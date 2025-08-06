@@ -31,6 +31,7 @@ i3 = "~/.i3"
 "waybar/" = "~/.config/waybar/"
 "systemd/user/swaybg.service" = "~/.config/systemd/user/swaybg.service"
 "systemd/user/swayidle.service" = "~/.config/systemd/user/swayidle.service"
+"systemd/user/gnome-polkit.service" = "~/.config/systemd/user/gnome-polkit.service"
 
 [zsh.files]
 "zsh/zshrc" = "~/.zshrc"
