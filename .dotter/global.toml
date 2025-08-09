@@ -9,6 +9,7 @@ depends = [
     "wezterm",
     "oh-my-posh",
     "logseq",
+    "syncthing",
 ]
 
 [wezterm.files]
@@ -32,6 +33,10 @@ i3 = "~/.i3"
 "waybar/" = "~/.config/waybar/"
 "systemd/user/swaybg.service" = "~/.config/systemd/user/swaybg.service"
 "systemd/user/gnome-polkit.service" = "~/.config/systemd/user/gnome-polkit.service"
+
+[syncthing.files]
+"systemd/user/syncthingtray.service" = "~/.config/systemd/user/syncthingtray.service"
+
 
 [zsh.files]
 "zsh/zshrc" = "~/.zshrc"
