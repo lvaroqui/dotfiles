@@ -1,7 +1,7 @@
 {
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-bluetooth": "{volume}% {icon} ",
+    "format-bluetooth": " {volume}%",
     "format-bluetooth-muted": " {icon} ",
     "format-muted": " ",
     "format-icons": {
@@ -12,7 +12,7 @@
       "default": ["", "", ""]
     },
     "scroll-step": 1,
-    "on-click-right": "pavucontro",
+    "on-click-right": "pavucontrol",
     "on-click": "~/.dotfiles/scripts/next-sink.py",
     "on-click-middle": "amixer set Master toggle"
   },
