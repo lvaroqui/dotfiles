@@ -2,7 +2,7 @@
 
 # Install Niri's dependencies
 paru -S niri \
-    swayidle \
+    hypridle \
     swaybg \
     hyprlock \
     waybar \
@@ -18,6 +18,6 @@ paru -S niri \
 # Enable Niri's services
 systemctl --user add-wants niri.service mako.service
 systemctl --user add-wants niri.service waybar.service
-systemctl --user add-wants niri.service swayidle.service
+systemctl --user add-wants niri.service hypridle.service
 systemctl --user add-wants niri.service swaybg.service
 systemctl --user add-wants niri.service gnome-polkit.service

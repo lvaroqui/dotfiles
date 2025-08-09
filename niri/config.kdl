@@ -118,7 +118,7 @@ output "eDP-1" {
     mode "2560x1600@165.000"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1.4
+    scale 1.0
 
     variable-refresh-rate
 
