@@ -21,3 +21,4 @@ systemctl --user add-wants niri.service waybar.service
 systemctl --user add-wants niri.service hypridle.service
 systemctl --user add-wants niri.service swaybg.service
 systemctl --user add-wants niri.service gnome-polkit.service
+systemctl --user add-wants niri.service syncthingtray.service
