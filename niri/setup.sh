@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 
 # Install Niri's dependencies
-paru -S niri \
+paru -S --needed niri-git \
     hypridle \
-    swaybg \
-    hyprlock \
-    waybar \
-    mako \
     xdg-desktop-portal-gtk \
     xdg-desktop-portal-gnome \
     nautilus \
@@ -15,10 +11,13 @@ paru -S niri \
     xwayland-satellite \
     lm_sensors
 
+# Install Dank Material Shell
+paru -S --needed \
+    dms-shell-git \
+    cava wl-clipboard cliphist brightnessctl \
+    matugen-bin dgop
+
 # Enable Niri's services
-systemctl --user add-wants niri.service mako.service
-systemctl --user add-wants niri.service waybar.service
 systemctl --user add-wants niri.service hypridle.service
-systemctl --user add-wants niri.service swaybg.service
 systemctl --user add-wants niri.service gnome-polkit.service
 systemctl --user add-wants niri.service syncthingtray.service
