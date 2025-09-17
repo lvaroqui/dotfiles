@@ -29,6 +29,7 @@ i3 = "~/.i3"
 "niri/config.kdl" = "~/.config/niri/config.kdl"
 "hypr/hypridle.conf" = "~/.config/hypr/hypridle.conf"
 "systemd/user/gnome-polkit.service" = "~/.config/systemd/user/gnome-polkit.service"
+"DankMaterialShell/settings.json" = "~/.config/DankMaterialShell/settings.json"
 
 [syncthing.files]
 "systemd/user/syncthingtray.service" = "~/.config/systemd/user/syncthingtray.service"
