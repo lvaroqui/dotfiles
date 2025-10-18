@@ -8,7 +8,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Extend PATH
@@ -28,8 +27,6 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 # Setup atuin (command history manager)
 eval "$(atuin init --disable-up-arrow zsh)"
 
-export ZSH_AUTOSUGGEST_STRATEGY=(completion atuin)
-
 # Setup pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -45,5 +42,12 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
+{{#if dotter.packages.oh-my-posh}}
 # Setup oh-my-posh (terminal prompt)
 eval "$(oh-my-posh -c ~/.oh-my-posh.yaml init zsh)"
+{{/if}}
+
+{{#if dotter.packages.starship}}
+# Setup starship (terminal prompt)
+eval "$(starship init zsh)"
+{{/if}}

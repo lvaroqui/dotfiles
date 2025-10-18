@@ -7,7 +7,6 @@ depends = [
     "alacritty",
     "picom",
     "wezterm",
-    "oh-my-posh",
     "logseq",
     "syncthing",
 ]
@@ -17,6 +16,9 @@ depends = [
 
 [oh-my-posh.files]
 "oh-my-posh.yaml" = { target = "~/.oh-my-posh.yaml", type = "symbolic" }
+
+[starship.files]
+"starship.toml" = { target = "~/.config/starship.toml", type = "symbolic" }
 
 [git.files]
 gitconfig = "~/.gitconfig"
@@ -34,9 +36,8 @@ i3 = "~/.i3"
 [syncthing.files]
 "systemd/user/syncthingtray.service" = "~/.config/systemd/user/syncthingtray.service"
 
-
 [zsh.files]
-"zsh/zshrc" = "~/.zshrc"
+"zsh/zshrc" = { target = "~/.zshrc", type = "template" }
 
 [alacritty.files]
 "alacritty.toml" = "~/.config/alacritty/alacritty.toml"
