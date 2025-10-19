@@ -1,15 +1,5 @@
 [default]
-depends = [
-    "git",
-    "i3",
-    "niri",
-    "zsh",
-    "alacritty",
-    "picom",
-    "wezterm",
-    "logseq",
-    "syncthing",
-]
+depends = ["git", "niri", "wezterm", "logseq", "syncthing"]
 
 [wezterm.files]
 "wezterm.lua" = { target = "~/.wezterm.lua", type = "symbolic" }
@@ -38,6 +28,9 @@ i3 = "~/.i3"
 
 [zsh.files]
 "zsh/zshrc" = { target = "~/.zshrc", type = "template" }
+
+[fish.files]
+"fish/config.fish" = "~/.config/fish/config.fish"
 
 [alacritty.files]
 "alacritty.toml" = "~/.config/alacritty/alacritty.toml"
