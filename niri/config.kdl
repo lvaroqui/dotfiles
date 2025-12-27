@@ -442,7 +442,7 @@ binds {
     // ...
 
     // And you can also move a whole orkspace to another monitor:
-    // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
+    Mod+X  { move-workspace-to-monitor-next; }
     // ...
 
     Mod+Page_Down      { focus-workspace-down; }
